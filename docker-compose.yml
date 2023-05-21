@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  backup:
+    image: backup-server
+    build: .
+    ports:
+      - 445:445
+    volumes:
+      - ./backups:/mnt/backups
+    environment:
+      SAMBA_USER: keeper
+      SAMBA_PASSWORD: keeper-passwd
